@@ -1,6 +1,6 @@
 package hello.core.member;
 
-public interface MemeberService {
+public interface MemberService {
 
     void join(Member member);
 
