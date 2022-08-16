@@ -11,11 +11,16 @@ import hello.core.order.OrderServiceImpl;
 public class OderApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
+
+//        MemberService memberService = new MemberServiceImpl(null);
+//        OrderService orderService = new OrderServiceImpl(null,null);
 
         Long memberId = 1L;
-        Member member = new Member(memberId, "min", Grade.BASIC);
+        Member member = new Member(memberId, "min", Grade.VIP);
         memberService.join(member);
 
         Order order = orderService.createOrder(memberId, "aa", 5000);

@@ -1,15 +1,19 @@
 package hello.core.order;
 
 import hello.core.discount.DiscountPlicy;
-import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPlicy discountPlicy = new FixDiscountPolicy();
+    private final MemberRepository memberRepository;
+    private final DiscountPlicy discountPlicy;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPlicy discountPlicy) {
+        this.memberRepository = memberRepository;
+        this.discountPlicy = discountPlicy;
+    }
+
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
