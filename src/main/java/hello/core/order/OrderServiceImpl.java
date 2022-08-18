@@ -12,7 +12,7 @@ public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;
     private final DiscountPlicy discountPlicy;
 
-    @Autowired
+
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPlicy discountPlicy) {
         this.memberRepository = memberRepository;
         this.discountPlicy = discountPlicy;

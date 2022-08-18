@@ -32,9 +32,10 @@ class OrderServiceTest {
         Member member = new Member(memberId, "min", Grade.VIP);
         memberService.join(member);
 
-        Order order = orderService.createOrder(memberId, "aa", 5000);
+        Order order = orderService.createOrder(memberId, "aa", 10000);
 
-        Assertions.assertThat(order.calculatePrice()).isEqualTo(4000);
+        Assertions.assertThat(order.calculatePrice()).isEqualTo(9000);
 
     }
+
 }
